@@ -1,12 +1,21 @@
 from Tools.Plot import * 
-
+import math 
+import numpy
 
 def main():
 
-    info=[1 , 3 ,6, -1]
+    info=[]
+    rad = numpy.radians(range(0, 360))
+    for r in rad :
+         info.append( math.sin( r ))
     #Plot(info)
-    info2=  range(0, 20)
-    pdfResult = Pdf(info2,4,1)
+    infoNrml= [element/max(info) * 100 for element in info]
+        
+    pdfResult = Pdf(infoNrml,5,1)
+    pdfResult = Pdf(infoNrml,10,1)
+    pdfResult = Pdf(infoNrml,20,1)
+
+
     1+1
 
 

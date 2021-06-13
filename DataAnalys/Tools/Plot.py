@@ -20,15 +20,15 @@ def Pdf(signal,seedNum, level):
     n=1
     resul = PdfSeed([], [] ,[] , signal,level, []) # ocurrence, values ,indexes , originSet,level, seedNum)
     while n <= seedNum :
-        before =((n-1)*seedVal)
-        current =(n*seedVal)
+        before =((n-1)*seedVal)+minL
+        current =(n*seedVal)+minL
         idx = -1
         ocurrenceIn =0
         indexesIn=[]
         valuesIn=[]
         for elem in signal:
             idx +=1
-            if( before <=  elem & elem < current):
+            if( (before <=  elem) & (elem < current)):
                 ocurrenceIn = ocurrenceIn + 1
                 indexesIn.append(idx)
                 valuesIn.append(elem)
