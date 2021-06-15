@@ -13,3 +13,6 @@ class PdfSeed:
         self.OriginSet = originSet
         self.Level = level
         self.SeedNum = seedNum
+
+
+    
