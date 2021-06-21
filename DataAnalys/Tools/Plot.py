@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import math
 from Model.PdfSeed import  PdfSeed 
+import numpy
 
 def Plot(indx,dataList ):
     plt.plot(  indx, dataList  ,'o', color='blue' ) 
@@ -9,7 +10,8 @@ def Plot(indx,dataList ):
     
     
 def Plot(ary):
-    plt.plot(  ary ,'o', color='blue' ) 
+    for x in ary:
+        plt.plot(  x  ) 
     plt.show()
     
 
@@ -40,7 +42,7 @@ def Pdf(signal,seedNum, level):
         n+=1
     return resul
 
-def generateNumber():
+def generateNumberPrime():
     #numAry=[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 
     #        41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89,
     #        97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 
@@ -51,16 +53,27 @@ def generateNumber():
     #        379, 383, 389, 397, 401, 409, 419, 421, 431, 433, 
     #        439, 443, 449, 457, 461, 463, 467, 479, 487, 491,
     #        499, 503, 509, 521, 523, 541]
-    numAry=[2, 3, 5, 7, 11, 13, 17, 19, 23]
+    numAry=[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31]
     numAryMod=[]
-    n=1
     for x in numAry:
-       while n<x:
+       n=1
+       while n <= math.floor(x/2):          
            numAryMod.append(float((6.28*n)/float(x)))
            n=n+1
     return numAryMod
 
-        
+def generateNumberSine(n):
+    info=[]
+    inf2=[]
+    rad = numpy.radians(range(0, n*360))
+    for r in rad :
+         info.append( math.sin( r ))
+    #Plot(info)
+    inf2=[element/max(info) * 100 for element in info]
+    return inf2
+
+def generateNumberLine(n):
+    return range(0, n)
                 
 
 

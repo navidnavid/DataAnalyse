@@ -2,21 +2,15 @@ from Tools.Plot import *
 import math 
 import numpy
 
-#def PlotMulti(pL):
-#        for p in pL:
-#            Plot(p)
+#the idea is the pdf shape indicates info or relations -> then can changed saped into level help predict the next elements ?
 
 def main():
 
     info=[]
-    rad = numpy.radians(range(0, 360))
-    for r in rad :
-         info.append( math.sin( r ))
-    #Plot(info)
-    infoNrml= [element/max(info) * 100 for element in info]
-    infoNrml= range(0, 20)
+
     #------------
-    infoNrml= generateNumber()
+    #infoNrml= generateNumberSine(4)
+    infoNrml= generateNumberPrime()
 
     #------------
     dataAry=[]
@@ -25,17 +19,20 @@ def main():
     PrbOccurence=[]
     x=0
     pdfSeedList = []
-    while x<10 :
+    SeedQuanity=30
+    while x<8:
         for  infoNrml in dataAry:
             l=len(infoNrml)
             l=len(dataAry)
-            pdfResult = Pdf(infoNrml,2,x)
+            pdfResult = Pdf(infoNrml,SeedQuanity,x)
             PrbOccurence.append(pdfResult.Ocurrence)
             for ary in  pdfResult.Values :
                 responseAry.append(ary)
             pdfSeedList.append(pdfResult)
         responseAryNotEmpty = [x for x in responseAry if (x != [] and len(x)>1)]
         dataAry=responseAryNotEmpty
+        Plot(PrbOccurence)
+        Plot(responseAryNotEmpty)
         #PlotMulti(responseAry) #add epty remove 
         responseAry=[]
         x =x+1
