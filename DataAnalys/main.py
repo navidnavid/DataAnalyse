@@ -11,31 +11,34 @@ def main():
     #------------
     #infoNrml= generateNumberSine(4)
     infoNrml= generateNumberPrime()
-
+    print(len(infoNrml))
     #------------
     dataAry=[]
-    dataAry.append(infoNrml)
+    dataAry.append(infoNrml)   
     responseAry=[]
     PrbOccurence=[]
-    x=0
+    level=0
     pdfSeedList = []
-    SeedQuanity=30
-    while x<8:
+    SeedQuanity=3
+    while level<4:
         for  infoNrml in dataAry:
             l=len(infoNrml)
             l=len(dataAry)
-            pdfResult = Pdf(infoNrml,SeedQuanity,x)
+            pdfResult = Pdf(infoNrml,SeedQuanity,level)
             PrbOccurence.append(pdfResult.Ocurrence)
             for ary in  pdfResult.Values :
                 responseAry.append(ary)
             pdfSeedList.append(pdfResult)
         responseAryNotEmpty = [x for x in responseAry if (x != [] and len(x)>1)]
         dataAry=responseAryNotEmpty
-        Plot(PrbOccurence)
-        Plot(responseAryNotEmpty)
+
+        #Plot(PrbOccurence, 2)
+        selectedAry = list(dict.fromkeys([0, round(len(PrbOccurence)/2), len(PrbOccurence)]))
+        PlotByIdx(PrbOccurence, selectedAry)
+        #Plot(responseAryNotEmpty)
         #PlotMulti(responseAry) #add epty remove 
         responseAry=[]
-        x =x+1
+        level =level+1
     
 
     
