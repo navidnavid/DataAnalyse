@@ -20,7 +20,7 @@ def Plot(ary, level):
     plt.show()
 
 def PlotByIdx(ary, IdxAry):
-    figure, axis = plt.subplots(len(IdxAry))
+    figure, axis = plt.subplots(len(IdxAry)+1)
     i=0
     for x in IdxAry:
         if(x<len(ary)):
@@ -55,6 +55,7 @@ def Pdf(signal,seedNum, level):
         resul.Values.append(valuesIn)
         resul.SeedNum.append(n)        
         n+=1
+        print(n)
     return resul
 
 def generateNumberPrime():
