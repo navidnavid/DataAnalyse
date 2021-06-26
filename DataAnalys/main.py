@@ -19,7 +19,7 @@ def main():
     PrbOccurence=[]
     level=0
     pdfSeedList = []
-    SeedQuanity=3
+    SeedQuanity=100
     while level<4:
         for  infoNrml in dataAry:
             l=len(infoNrml)
@@ -33,7 +33,7 @@ def main():
         dataAry=responseAryNotEmpty
 
         #Plot(PrbOccurence, 2)
-        selectedAry = list(dict.fromkeys([0, round(len(PrbOccurence)/2), len(PrbOccurence)]))
+        selectedAry = list(dict.fromkeys([0, round(len(PrbOccurence)/2), len(PrbOccurence)-1]))
         PlotByIdx(PrbOccurence, selectedAry)
         #Plot(responseAryNotEmpty)
         #PlotMulti(responseAry) #add epty remove 
