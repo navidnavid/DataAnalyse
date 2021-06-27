@@ -50,4 +50,5 @@ if __name__ == "__main__":
     #todo do -> the goal is to find relation in each level which can decrease the enthropy tp zero.
     # then it is like knowing by features (algebra)-> which properties can be find in each level 
     # Also it is ajusta tet åproject for python this is why this algorithm is vague and there is no
-    # value continuig it. 
+    # value continuig it.
+    # This method is aimed for biological/ scattering real targets not prime num. 
